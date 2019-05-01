@@ -1,0 +1,24 @@
+</<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'home.css' %}">
+    <script src="main.js"></script>
+</head>
+<body>
+<form class="home">
+    <h1 class="head">알라딘 요술램프</h1>
+    <h2 class="headtwo">리뷰 목록</h2>
+        <ul>
+        {% for post in posts %}
+            <li><a class="list" href="{% url 'detail' post.pk %}">{{ post.title }}</a></li><br>
+        {% endfor %}
+        </ul>
+    <a class="new" href="{% url 'new' %}">리뷰 작성</a>
+</form>
+</body>
+</html>

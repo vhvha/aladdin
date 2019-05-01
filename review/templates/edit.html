@@ -1,0 +1,18 @@
+</<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <h1>글 고치기</h1>
+    <form method="POST">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="subit">수정 완료</button>
+    </form>
+</body>
+</html>

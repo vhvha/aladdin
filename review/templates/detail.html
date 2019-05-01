@@ -1,0 +1,38 @@
+</<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'detail.css' %}">
+    <script src="main.js"></script>
+</head>
+<body class = "box">
+    <h2>{{ post.title }}</h2>
+    <h5>{{ post.contents }}</h5>
+    <h6>{{ post.author }}지음</h6>
+    <h5>평점 : {{ post.score }}</h5>
+
+    
+
+    <a href="{% url 'home' %}">홈으로</a>
+    <a href="{% url 'edit' post.pk %}">리뷰 수정하기</a>
+    <a href="{% url 'delete' post.pk %}">리뷰 삭제</a>
+
+    <ul>
+        {% for comment in post.comments.all %}
+            <li>{{ comment.content }} <a href="{% url 'delete_comment' post.pk comment.pk %}">삭제하기</a></li>
+        {% endfor %}
+    </ul>
+
+    <form method="POST">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">댓글 올리기</button>
+
+   
+    </form>
+    
+</body>
+</html>

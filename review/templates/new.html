@@ -1,0 +1,22 @@
+</<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'new.css' %}">
+    <script src="main.js"></script>
+</head>
+<body>
+<div class = "div">
+
+    <h1 class = "headone" >리뷰노트</h1>
+    <form  method="POST">{% csrf_token %}
+        {{ form.as_p }}
+        <button class="button" type="submit">등록</button>
+    </form>
+</div>    
+</body>
+</html>
